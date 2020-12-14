@@ -5,4 +5,582 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  outline: none;
+}
+
+::-moz-selection {
+  background-color: #58aeff59;
+}
+
+::selection {
+  background-color: #58aeff59;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #D5DDFF;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #7A87C1;
+  border-radius: 50px;
+}
+
+.raycast {
+  border: 1px solid red;
+}
+
+html {
+  width: 100%;
+}
+
+.flex-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.flex-row.flex-row-overflow-x {
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.flex-row.flex-row-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.flex-row.flex-row-middle {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flex-row.flex-row-fw {
+  width: 100%;
+}
+
+.flex-row.flex-row-fh {
+  height: 100%;
+}
+
+.flex-row.flex-row-wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.flex-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.flex-column.-flex-fw {
+  width: 100%;
+}
+
+.flex-column.-flex-fh {
+  height: 100%;
+}
+
+.flex-column.-flex-wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+input, button {
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  background-color: white;
+  scroll-behavior: smooth;
+}
+
+body > .fiy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+  max-width: 730px;
+  min-height: 100vh;
+  height: 100vh;
+}
+
+body > .fiy > header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  background-color: #D5DDFF;
+}
+
+body > .fiy > header .app-head {
+  margin: 18px 18px 5px 18px;
+}
+
+body > .fiy > header .app-head .input-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+  border-radius: 4px;
+  background-color: white;
+  -webkit-box-shadow: 0px 3px 6px 0.3px rgba(0, 26, 255, 0.06);
+          box-shadow: 0px 3px 6px 0.3px rgba(0, 26, 255, 0.06);
+  overflow: hidden;
+  height: 41px;
+}
+
+body > .fiy > header .app-head .input-box input[type=text] {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  padding: 11px 16px;
+  border-radius: 4px;
+  background-color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #272727;
+  width: 100%;
+  height: 100%;
+}
+
+body > .fiy > header .app-head .input-box > button {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  position: relative;
+  width: 41px;
+  height: 41px;
+  background-color: #EFFBFF;
+}
+
+body > .fiy > header .app-head .input-box > button > img {
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 25px;
+  height: 25px;
+}
+
+body > .fiy > header .app-head .logo {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: auto;
+  height: 35px;
+  margin: 8px 8px 8px 0;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+body > .fiy > header nav {
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: #E9EEFF;
+  -webkit-box-shadow: 0px 3px 6px 0.3px rgba(0, 26, 255, 0.06);
+          box-shadow: 0px 3px 6px 0.3px rgba(0, 26, 255, 0.06);
+}
+
+body > .fiy > header nav .flex-row.flex-row-overflow-x {
+  cursor: default;
+  -ms-scroll-snap-type: mandatory;
+      scroll-snap-type: mandatory;
+  will-change: transform;
+}
+
+body > .fiy > header nav .flex-row.flex-row-overflow-x.active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+body > .fiy > header nav .flex-row.flex-row-overflow-x.active button {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+body > .fiy > header nav button {
+  scroll-snap-align: start;
+  position: relative;
+  border-radius: 100px;
+  background-color: white;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 7px 10px;
+  margin: 10px;
+  -webkit-box-shadow: 0px 3px 6px 0.3px rgba(0, 26, 255, 0.06);
+          box-shadow: 0px 3px 6px 0.3px rgba(0, 26, 255, 0.06);
+  -webkit-transition: background-color .1s linear 0s, -webkit-box-shadow .3s linear 0s;
+  transition: background-color .1s linear 0s, -webkit-box-shadow .3s linear 0s;
+  transition: background-color .1s linear 0s, box-shadow .3s linear 0s;
+  transition: background-color .1s linear 0s, box-shadow .3s linear 0s, -webkit-box-shadow .3s linear 0s;
+}
+
+body > .fiy > header nav button:first-child {
+  margin: 10px 10px 10px 20px;
+}
+
+body > .fiy > header nav button:last-child {
+  margin: 10px 20px 10px 10px;
+}
+
+body > .fiy > header nav button:hover {
+  background-color: #f3f1ff;
+  -webkit-box-shadow: 0px 3px 6px 1px rgba(0, 26, 255, 0.08);
+          box-shadow: 0px 3px 6px 1px rgba(0, 26, 255, 0.08);
+}
+
+body > .fiy > header nav button:hover span {
+  color: #6fc3df;
+}
+
+body > .fiy > header nav button .flex-row {
+  padding: 1px 2px;
+}
+
+body > .fiy > header nav button img {
+  pointer-events: none;
+  width: 23px;
+  height: 23px;
+}
+
+body > .fiy > header nav button span {
+  margin: 0 0 0 10px;
+  font-size: 17px;
+  color: #2eb8e6;
+  font-weight: 600;
+  font-family: "Lato", sans-serif;
+  display: inline-block;
+}
+
+body > .fiy .panel {
+  cursor: default;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: auto;
+  height: 100%;
+  padding: 15px 22px;
+  background-color: #FAFCFF;
+}
+
+body > .fiy .panel.active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+body > .fiy .panel.active * {
+  cursor: -webkit-grabbing !important;
+  cursor: grabbing !important;
+}
+
+body > .fiy .panel .wrapper {
+  z-index: 1;
+}
+
+body > .fiy .panel .wrapper:hover {
+  z-index: 2;
+}
+
+body > .fiy .panel .wrapper:hover .content {
+  z-index: 2;
+  -webkit-box-shadow: 0px 19px 30px -1.4px rgba(0, 26, 255, 0.12);
+          box-shadow: 0px 19px 30px -1.4px rgba(0, 26, 255, 0.12);
+  -webkit-transform: scale(1.025);
+          transform: scale(1.025);
+  -webkit-transition: -webkit-box-shadow 0s linear 0s, -webkit-transform 0s linear 0s;
+  transition: -webkit-box-shadow 0s linear 0s, -webkit-transform 0s linear 0s;
+  transition: box-shadow 0s linear 0s, transform 0s linear 0s;
+  transition: box-shadow 0s linear 0s, transform 0s linear 0s, -webkit-box-shadow 0s linear 0s, -webkit-transform 0s linear 0s;
+}
+
+body > .fiy .panel .wrapper:hover .content > .txt-container .title {
+  color: #6fc3df;
+  -webkit-transition: color 0s linear 0s;
+  transition: color 0s linear 0s;
+}
+
+body > .fiy .panel .wrapper .content {
+  z-index: 1;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 10px 5px;
+  -webkit-box-shadow: 0px 3px 6px 0.3px rgba(0, 26, 255, 0.03);
+          box-shadow: 0px 3px 6px 0.3px rgba(0, 26, 255, 0.03);
+  border-radius: 5px;
+  overflow: hidden;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  background-color: white;
+  -webkit-transition: -webkit-box-shadow 0.3s linear 0s, -webkit-transform 0.2s cubic-bezier(0.36, 1.11, 0.6, 1.19);
+  transition: -webkit-box-shadow 0.3s linear 0s, -webkit-transform 0.2s cubic-bezier(0.36, 1.11, 0.6, 1.19);
+  transition: box-shadow 0.3s linear 0s, transform 0.2s cubic-bezier(0.36, 1.11, 0.6, 1.19);
+  transition: box-shadow 0.3s linear 0s, transform 0.2s cubic-bezier(0.36, 1.11, 0.6, 1.19), -webkit-box-shadow 0.3s linear 0s, -webkit-transform 0.2s cubic-bezier(0.36, 1.11, 0.6, 1.19);
+}
+
+body > .fiy .panel .wrapper .content > .img-container {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 78px;
+          flex: 0 0 78px;
+  position: relative;
+  background-color: #7593F5;
+}
+
+body > .fiy .panel .wrapper .content > .img-container > img {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+body > .fiy .panel .wrapper .content > .img-container.color-python {
+  background-color: #FF9D8E;
+}
+
+body > .fiy .panel .wrapper .content > .img-container.color-python-2 {
+  background-color: #FFCE8E;
+}
+
+body > .fiy .panel .wrapper .content > .img-container.color-ruby {
+  background-color: #FF8EB8;
+}
+
+body > .fiy .panel .wrapper .content > .img-container.color-javascript {
+  background-color: #FFE58E;
+}
+
+body > .fiy .panel .wrapper .content > .img-container.color-cpp {
+  background-color: #8ECEFF;
+}
+
+body > .fiy .panel .wrapper .content > .img-container.color-csharp {
+  background-color: #8ECEFF;
+}
+
+body > .fiy .panel .wrapper .content > .txt-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 10px 10px 10px 15px;
+  width: 100%;
+}
+
+body > .fiy .panel .wrapper .content > .txt-container > .title {
+  cursor: pointer;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  color: #272727;
+  font-size: 19px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  -webkit-transition: color .2s linear 0s;
+  transition: color .2s linear 0s;
+}
+
+body > .fiy .panel .wrapper .content > .txt-container > .detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 4px 0;
+}
+
+body > .fiy .panel .wrapper .content > .txt-container > .detail > .info {
+  position: relative;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 400;
+  color: #ffc267;
+  font-size: 15px;
+  display: inline-block;
+  padding: 2px 2px 2px 27px;
+  margin: 2px 8px 2px 0;
+}
+
+body > .fiy .panel .wrapper .content > .txt-container > .detail > .info::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-image: url("../resources/icons/python_127px.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+body > .fiy .panel .wrapper .content > .txt-container > .detail > .info.info-date {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+body > .fiy .panel .wrapper .content > .txt-container > .detail > .info.info-date::before {
+  background-image: url("../resources/icons/ic_calendar_127px.png");
+}
+
+body > .fiy .panel .wrapper .content > .txt-container > .detail > .info.info-time {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+body > .fiy .panel .wrapper .content > .txt-container > .detail > .info.info-time::before {
+  background-image: url("../resources/icons/ic_clock_127px.png");
+}
+
+body > .fiy .panel .wrapper .content > .txt-container > .detail > .info.info-url {
+  cursor: text;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-decoration: underline;
+  color: #547EDF;
+  -webkit-transition: color .2s linear 0s;
+  transition: color .2s linear 0s;
+}
+
+body > .fiy .panel .wrapper .content > .txt-container > .detail > .info.info-url:hover {
+  color: #82b2ff;
+}
+
+body > .fiy .panel .wrapper .content > .txt-container > .detail > .info.info-url::before {
+  background-image: url("../resources/icons/ic_url_127px.png");
+}
+
+body > .fiy .panel .nav-float {
+  z-index: 3;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 6px;
+}
+
+body > .fiy .panel .nav-float button {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 3px 6px 0.3px rgba(0, 26, 255, 0.06);
+          box-shadow: 0px 3px 6px 0.3px rgba(0, 26, 255, 0.06);
+  background-color: white;
+  margin: 10px 3px;
+}
+
+body > .fiy .panel .nav-float button img {
+  position: absolute;
+  width: 43px;
+  height: 43px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
 /*# sourceMappingURL=style.css.map */
