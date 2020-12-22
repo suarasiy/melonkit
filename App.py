@@ -1,6 +1,8 @@
+import os
 import eel
 from colorama import *
 
+os.system("")
 print("app")
 
 @eel.expose
