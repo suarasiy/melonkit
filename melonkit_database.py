@@ -71,6 +71,6 @@ def deletepermanenData(name_database,id):
 
 # deletepermanenData("CODE",1)
 
-readData("CODE")
-conn.close()
+# readData("CODE")
+# conn.close()
 
