@@ -60,6 +60,8 @@ def deletepermanenData(name_database,id):
       return c.execute(delete)
 
 
+#testing 
+
 # url = 'https://stackoverflow.com/questions/5601931/what-is-the-best-and-safest-way-to-merge-a-git-branch-into-master'
 # systax = r'''
 # print("hello world")
@@ -71,6 +73,6 @@ def deletepermanenData(name_database,id):
 
 # deletepermanenData("CODE",1)
 
-readData("CODE")
-conn.close()
+# readData("CODE")
+# conn.close()
 
