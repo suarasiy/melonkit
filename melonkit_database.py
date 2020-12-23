@@ -43,21 +43,24 @@ def insertData(name_database,id,id_catagory,url,title,systax,description_code,ca
 def updateData(name_database,index_change,value_change,id):
       update = "UPDATE '{}' set '{}' = '{}'  WHERE id = '{}'".format(name_database,index_change,value_change,id)
       update = "UPDATE '{}' set updated_at = CURRENT_TIMESTAMP WHERE id = '{}'".format(name_database,id)
-      conn.commit()
       return c.execute(update)
 
 def readData(name_database):
       read = "SELECT * from '{}'".format(name_database)
+      conn.commit()
       c.execute(read)
       return print(c.fetchall())
       
 def deleteData(name_database,id):
-      delete = "DELETE from '{}' where ID = {}".format(name_database,id)
       delete = "UPDATE '{}' set deleted_at = CURRENT_TIMESTAMP WHERE id = '{}'".format(name_database,id)
-      conn.commit()
+      return c.execute(delete)
+
+def deletepermanenData(name_database,id):
+      delete = "DELETE FROM '{}' WHERE id = '{}'".format(name_database,id)
       return c.execute(delete)
 
 
+#testing 
 
 # url = 'https://stackoverflow.com/questions/5601931/what-is-the-best-and-safest-way-to-merge-a-git-branch-into-master'
 # systax = r'''
@@ -65,7 +68,11 @@ def deleteData(name_database,id):
 # '''
 
 # insertData("CODE",1,1,url,"membangun dengan python",systax,"mencoba python","python","python")
-# conn.commit()
+
+# deleteData("CODE",1)
+
+# deletepermanenData("CODE",1)
 
 # readData("CODE")
 # conn.close()
+
