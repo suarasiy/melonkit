@@ -2,10 +2,41 @@
 
 import sqlite3
 
-conn = sqlite3.connect('melonkit.db')
-c = conn.cursor()
+connection = sqlite3.connect('melonkit.db')
+cursor = connection.cursor()
 
 print("Opened database successfully")
+
+# create table
+create_category = """
+                  CREATE TABLE IF NOT EXISTS
+                  category (
+                        id          INTEGER PRIMARY KEY,
+                        category    VARCHAR                 NOT NULL,
+                        description VARCHAR                 NULL
+                        )
+                  """
+
+create_code = """
+            CREATE TABLE IF NOT EXISTS
+            code (
+                  id                INTEGER PRIMARY KEY,
+                  id_category       INT                     NOT NULL,
+                  url               VARCHAR                 NULL,
+                  title             VARCHAR                 NOT NULL,
+                  syntax            MEDIUMTEXT              NULL,
+                  description       VARCHAR                 NULL,
+                  create_at         DATETIME,
+                  updated_at        DATETIME                NULL,
+                  deleted_at        DATETIME                NULL,
+                  FOREIGN KEY ( id_category ) REFERENCES category ( id )
+                  )
+            """
+
+
+cursor.execute(create_category)
+cursor.execute(create_code)
+connection.close()
 
 # create table
 # c.execute('''CREATE TABLE CATAGORY
@@ -27,35 +58,44 @@ print("Opened database successfully")
 
 
 
-def insertData(name_database,id,id_catagory,url,title,systax,description_code,catagory_language,description_language):
-      if name_database == 'CODE':
-            insert = "INSERT INTO CODE (id,id_catagory,url,title,systax,description,create_at) \
-                      VALUES({},{},'{}','{}','''{}''','{}',CURRENT_TIMESTAMP) \
-                      ".format(id,id_catagory,url,title,systax,description_code)
-      elif name_database == 'CATEGORY':
-            id_catagory = id    
-            insert = "INSERT INTO CATEGORY (id,catagory,description) \
-                      VALUES({},'{}','{}') \
-                      ".format(id,catagory_language,description_language)
+# def insert_code(id, id_category, url, title, syntax, description):
+#       command = f"""
+#       INSERT INTO CODE ( id, id_catagory, url, title, systax, description, create_at )
+#       VALUES ({id}, {id_category}, {url}, {title}, {syntax}, {description}, CURRENT_TIMESTAMP)
+#       """
+#       c.execute(command)
+#       print("done")
+
+# def insertData(name_database,id,id_catagory,url,title,systax,description_code,catagory_language,description_language):
+#       insert = ""
+#       if name_database == 'CODE':
+#             insert = "INSERT INTO CODE (id,id_catagory,url,title,systax,description,create_at) \
+#                       VALUES({},{},'{}','{}','''{}''','{}',CURRENT_TIMESTAMP) \
+#                       ".format(id,id_catagory,url,title,systax,description_code)
+#       elif name_database == 'CATEGORY':
+#             id_catagory = id    
+#             insert = "INSERT INTO CATEGORY (id,catagory,description) \
+#                       VALUES({},'{}','{}') \
+#                       ".format(id,catagory_language,description_language)
                    
-      return c.execute(insert)
+#       return c.execute(insert)
 
-def updateData(name_database,index_change,value_change,id):
-      update = "UPDATE '{}' set '{}' = '{}'  WHERE id = '{}'".format(name_database,index_change,value_change,id)
-      update = "UPDATE '{}' set updated_at = CURRENT_TIMESTAMP WHERE id = '{}'".format(name_database,id)
-      conn.commit()
-      return c.execute(update)
+# def updateData(name_database,index_change,value_change,id):
+#       update = "UPDATE '{}' set '{}' = '{}'  WHERE id = '{}'".format(name_database,index_change,value_change,id)
+#       update = "UPDATE '{}' set updated_at = CURRENT_TIMESTAMP WHERE id = '{}'".format(name_database,id)
+#       conn.commit()
+#       return c.execute(update)
 
-def readData(name_database):
-      read = "SELECT * from '{}'".format(name_database)
-      c.execute(read)
-      return print(c.fetchall())
+# def readData(name_database):
+#       read = "SELECT * from '{}'".format(name_database)
+#       c.execute(read)
+#       return c.fetchall()
       
-def deleteData(name_database,id):
-      delete = "DELETE from '{}' where ID = {}".format(name_database,id)
-      delete = "UPDATE '{}' set deleted_at = CURRENT_TIMESTAMP WHERE id = '{}'".format(name_database,id)
-      conn.commit()
-      return c.execute(delete)
+# def deleteData(name_database,id):
+#       delete = "DELETE from '{}' where ID = {}".format(name_database,id)
+#       delete = "UPDATE '{}' set deleted_at = CURRENT_TIMESTAMP WHERE id = '{}'".format(name_database,id)
+#       conn.commit()
+#       return c.execute(delete)
 
 
 
