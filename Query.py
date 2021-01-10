@@ -213,3 +213,18 @@ def show_categories(order: str = "DESC") -> list:
 
     connection.close()
     return result
+
+def find_categories(id):
+    connection = sqlite3.connect("melonkit.db")
+    cursor = connection.cursor()
+
+    query = """
+            SELECT * FROM category
+            WHERE id = ?
+            """
+    
+    context = cursor.execute(query, (id,))
+    result = context.fetchone()
+
+    connection.close()
+    return result
