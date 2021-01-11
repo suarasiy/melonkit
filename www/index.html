@@ -12,7 +12,7 @@
             <div class="app-head">
                 <div class="flex-column">
                     <div class="input-box">
-                        <input type="text" name="search" id="search" placeholder="Search..." autocomplete="off" spellcheck="false">
+                        <input type="text" name="search" id="search" placeholder="Search... / ctrl + f" autocomplete="off" spellcheck="false">
                         <button>
                             <img src="resources/icons/ic_filter_127px.png" alt="">
                         </button>
@@ -25,49 +25,49 @@
             </div>
             <nav>
                 <div class="flex-row flex-row-overflow-x">
-                    <button>
+                    <button data-filter-code="*" onclick="eel.get_list()">
                         <div class="flex-row flex-center">
                             <img src="resources/icons/lite_asterisk_127px.png" alt="">
                             <span>ALL</span>
                         </div>
                     </button>
-                    <button>
+                    <button data-filter-code="python" onclick="filter_code_list(this)">
                         <div class="flex-row flex-center">
                             <img src="resources/icons/lite_python_127px.png" alt="">
                             <span>Python</span>
                         </div>
                     </button>
-                    <button>
+                    <button data-filter-code="javascript" onclick="filter_code_list(this)">
                         <div class="flex-row flex-center">
                             <img src="resources/icons/lite_javascript_127px.png" alt="">
                             <span>JavaScript</span>
                         </div>
                     </button>
-                    <button>
+                    <button data-filter-code="c++" onclick="filter_code_list(this)">
                         <div class="flex-row flex-center">
                             <img src="resources/icons/lite_cpp_127px.png" alt="">
                             <span>C++</span>
                         </div>
                     </button>
-                    <button>
+                    <button data-filter-code="java" onclick="filter_code_list(this)">
                         <div class="flex-row flex-center">
                             <img src="resources/icons/lite_java_127px.png" alt="">
                             <span>Java</span>
                         </div>
                     </button>
-                    <button>
+                    <button data-filter-code="css" onclick="filter_code_list(this)">
                         <div class="flex-row flex-center">
                             <img src="resources/icons/lite_css_127px.png" alt="">
                             <span>CSS</span>
                         </div>
                     </button>
-                    <button>
+                    <button data-filter-code="php" onclick="filter_code_list(this)">
                         <div class="flex-row flex-center">
                             <img src="resources/icons/lite_php_127px.png" alt="">
                             <span>PHP</span>
                         </div>
                     </button>
-                    <button>
+                    <button data-filter-code="react" onclick="filter_code_list(this)">
                         <div class="flex-row flex-center">
                             <img src="resources/icons/lite_react_127px.png" alt="">
                             <span>React</span>
@@ -76,8 +76,8 @@
                 </div>
             </nav>
         </header>
-        <div class="panel">
-            <div class="wrapper">
+        <div class="panel" id="panel">
+            <!--<div class="wrapper">
                 <div class="content">
                     <div class="img-container color-python">
                         <img src="resources/icons/python_127px.png" alt="" draggable="false">
@@ -196,7 +196,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="nav-float" action-float="float">
                 <button action-float="add">
                     <img src="resources/icons/ic_add_127px.png" alt="" srcset="" draggable="false">
