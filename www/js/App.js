@@ -70,11 +70,34 @@ function panel_scroll_grab() {
 
 panel_scroll_grab();
 
+var text_search = document.querySelector("#search");
+text_search.focus();
+
+function hotkeys() {
+    const text_search = document.querySelector("#search");
+    document.onkeydown = function(event) {
+        if (event.ctrlKey && event.key == "f") {
+            event.preventDefault();
+            text_search.focus();
+        }
+    }
+}
+
+hotkeys();
+
+eel.expose(clear_code)
+function clear_code() {
+    const panel = document.querySelector("#panel");
+    panel.innerHTML = "";
+    console.log("asd");
+}
+
 eel.expose(code_list)
-function code_list(lang, title, description, date_created_at, time_created_at, url) {
+function code_list(id, lang, title, description, date_created_at, time_created_at, url) {
     const panel = document.querySelector("#panel");
 
     const div_wrapper = document.createElement("DIV");
+    div_wrapper.setAttribute("item-id", id);
     div_wrapper.classList.add("wrapper");
     panel.appendChild(div_wrapper);
     
@@ -128,3 +151,21 @@ function code_list(lang, title, description, date_created_at, time_created_at, u
 }
 
 eel.get_list();
+
+eel.expose(filter_code_list)
+function filter_code_list(elem) {
+    const lang = elem.getAttribute("data-filter-code");
+    eel.get_list_filter(lang);
+}
+
+function search_get_list() {
+    const text_search = document.querySelector("#search");
+    text_search.onkeyup = function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            eel.get_list_search(text_search.value);
+        }
+    }
+}
+
+search_get_list();

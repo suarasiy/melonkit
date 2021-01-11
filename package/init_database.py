@@ -1,6 +1,6 @@
 import sqlite3
 
-connection = sqlite3.connect('melonkit.db')
+connection = sqlite3.connect('../db/melonkit.db')
 cursor = connection.cursor()
 
 print("Opened database successfully")
@@ -24,7 +24,7 @@ create_code = """
                   title             VARCHAR                 NOT NULL,
                   syntax            MEDIUMTEXT              NULL,
                   description       VARCHAR                 NULL,
-                  create_at         DATETIME,
+                  created_at        DATETIME,
                   updated_at        DATETIME                NULL,
                   deleted_at        DATETIME                NULL,
                   FOREIGN KEY ( id_category ) REFERENCES category ( id )
